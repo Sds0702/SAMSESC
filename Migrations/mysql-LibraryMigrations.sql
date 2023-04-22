@@ -38,8 +38,8 @@ INSERT INTO library.book (isbn,title,author,year,copies) VALUES ('9780321349606'
 INSERT INTO library.book (isbn,title,author,year,copies) VALUES ('9783319994192', 'Java in two semesters (4th edition)', 'Quentin Charatan', '2019', '1');
 INSERT INTO library.book (isbn,title,author,year,copies) VALUES ('9781491952023', 'JavaScript: The Definitive Guide', 'David Flanagan', '2020', '2');
 INSERT INTO library.book (isbn,title,author,year,copies) VALUES ('9781491956250', 'Microservice Architecture - Aligning Principles, Practices, And Culture', 'Irakli Nadareishvili', '2016', '2');
-INSERT INTO library.book (isbn,title,author,year,copies) VALUES ('9781937785499', 'Programming Ruby 1.9 & 2.0 - The Pragmatic Programmers\' Guide', 'David Thomas', '2013', '2');
-INSERT INTO library.book (isbn,title,author,year,copies) VALUES ('9781593279288', 'Python Crash Course, 2nd Edition - A Hands-On, Project-Based Introduction To Programming', 'Eric Mathes', '2019', '1');
+INSERT INTO library.book (isbn,title,author,year,copies) VALUES ('9781937785499', 'Programming Ruby 1.9 & 2.0 - The Pragmatic Programmers\ Guide', 'David Thomas', '2013', '2');
+INSERT INTO library.book (isbn,title,author,year,copies) VALUES ('9781593279288', 'Python Crash Course2nd Edition - A Hands-On, Project-Based Introduction To Programming', 'Eric Mathes', '2019', '1');
 INSERT INTO library.book (isbn,title,author,year,copies) VALUES ('9781617298691', 'Spring Start Here - Learn What You Need And Learn It Well', 'Laurentiu Spilca', '2021', '2');
 INSERT INTO library.book (isbn,title,author,year,copies) VALUES ('9780135957059', 'The Pragmatic Programmer', 'David Thomas', '2019', '1');
 INSERT INTO library.book (isbn,title,author,year,copies) VALUES ('9780596516178', 'The Ruby Programming Language', 'David Flanagan', '2008', '1');
