@@ -1,7 +1,7 @@
 import { IncompleteBookError } from 'errors/errors';
 import { is_valid_isbn, is_valid_num_copies, is_valid_year } from 'helpers';
 
-class Book {
+class BookService {
     constructor(...args) {
         for (var arg, _pj_c = 0, _pj_a = args, _pj_b = _pj_a.length; _pj_c < _pj_b; _pj_c += 1) {
             arg = _pj_a[_pj_c];
