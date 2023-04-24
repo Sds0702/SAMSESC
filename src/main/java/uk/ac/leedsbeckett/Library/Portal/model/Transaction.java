@@ -1,10 +1,13 @@
 package uk.ac.leedsbeckett.Library.Portal.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.ToString;
-
+import org.apache.commons.lang3.RandomStringUtils;
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.Locale;
 
@@ -19,13 +22,13 @@ public class Transaction
     @Size(min = 8, max = 8, message = "{reference.size}")
     @Pattern(regexp = "[A-Z0-9]*", message = "{reference.format}")
     private String reference;
-    private Double amount;
+    private String Id;
+    private Double BookIsbn;
     private LocalDate dueDate;
     private Type type;
-    private String getStudentId;
     private Status status;
     @ManyToOne
-    @JoinColumn(name="book_fk",referencedColumnName="id")
+    @JoinColumn(name="Account",referencedColumnName="id")
     @ToString.Exclude
     private Book account;
 
@@ -36,20 +39,21 @@ public class Transaction
     }
 
     @JsonProperty
-    public void setAccount(Account account) {
+    public void setAccount(Book account) {
         this.account = account;
     }
 
     @JsonIgnore
-    public Account getAccount() {
+    public Book getAccount() {
         return this.account;
     }
 
-    public Invoice() {
+    public Transaction() {
     }
 
-    public Invoice(Double amount, LocalDate dueDate, Type type, Account account) {
-        this.amount = amount;
+    public Transaction(String Id, Double BookIsbn, LocalDate dueDate, Type type, Book account) {
+        this.Id = getStudentId();
+        this.BookIsbn = getBookIsbn();
         this.dueDate = dueDate;
         this.type = type;
         this.account = account;

@@ -29,4 +29,8 @@ public class Book
     {
         this.bookIsbn = bookIsbn;
     }
+
+    public String getStudentId() {
+        return Id;
+    }
 }

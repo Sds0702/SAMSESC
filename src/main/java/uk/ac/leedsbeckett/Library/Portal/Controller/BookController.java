@@ -1,7 +1,8 @@
 package uk.ac.leedsbeckett.Library.Portal.Controller;
 
 import com.sun.istack.NotNull;
-import org.hibernate.tuple.entity.EntityModel;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
