@@ -25,9 +25,6 @@ public class Book
     @Transient
     private boolean hasOutstandingBalance;
 
-    public Book() {
-    }
-
     public Book(String bookIsbn)
     {
         this.bookIsbn = bookIsbn;

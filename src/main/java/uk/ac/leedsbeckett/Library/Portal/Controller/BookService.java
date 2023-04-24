@@ -71,28 +71,28 @@ public class BookService
                 })
                 .orElseGet(() -> {
                     newBook.setIsbn(isbn);
-                /*    return accountRepository.save(newAccount);
+                   return accountRepository.save(newBook);
                 });
-        EntityModel<Account> entityModel = assembler.toModel(updatedAccount);
+        EntityModel<Book> entityModel = assembler.toModel(updatedAccount);
         return ResponseEntity
                 .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
                 .body(entityModel);
     }
 
-    public ResponseEntity<?> deleteAccount(Long id) {
+    /*public ResponseEntity<?> deleteAccount(Long id) {
         Account account = accountRepository.findById(id).orElseThrow(() -> new AccountNotFoundException(id));
         accountRepository.delete(account);
         return ResponseEntity.noContent().build();
-    }
+    }*/
 
-    private Account populateOutstandingBalance(Account account) {
+    private Book populateOutstandingBalance(Book account) {
         if (account != null) {
-            List<Invoice> invoices = invoiceRepository.findInvoiceByAccount_IdAndStatus(account.getId(), Status.OUTSTANDING);
+            List<Transaction> transactions = TransactionRepository.findTransactionByAccount_IdAndStatus(account.getId(), Status.OUTSTANDING);
 
-            if (invoices != null && !invoices.isEmpty()) {
-                account.setHasOutstandingBalance(invoices
+            if (transactions != null && !transactions.isEmpty()) {
+                account.setHasOutstandingBalance(transactions
                         .stream()
-                        .anyMatch(invoice -> invoice.getStatus().equals(Status.OUTSTANDING)));
+                        .anyMatch(transaction -> transaction.getStatus().equals(Status.OUTSTANDING)));
             }
         }
         return account;
