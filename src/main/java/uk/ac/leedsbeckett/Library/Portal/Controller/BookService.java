@@ -1,5 +1,7 @@
 package uk.ac.leedsbeckett.Library.Portal.Controller;
 
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.stereotype.Component;
 import uk.ac.leedsbeckett.Library.Portal.Controller.BookController
 import uk.ac.leedsbeckett.Library.Portal.model.BookModelAssembler;

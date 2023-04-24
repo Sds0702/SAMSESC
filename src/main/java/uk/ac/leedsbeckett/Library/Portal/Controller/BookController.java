@@ -1,10 +1,9 @@
 package uk.ac.leedsbeckett.Library.Portal.Controller;
 
+import com.sun.istack.NotNull;
+import org.hibernate.tuple.entity.EntityModel;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.awt.print.Book;
 
@@ -13,23 +12,24 @@ public class BookController
 {
     private final BookService bookService;
 
-    BookController(BookService bookService) {
+    BookController(BookService bookService)
+    {
         this.bookService = bookService;
     }
-}
     @GetMapping("/books")
-    public CollectionModel<EntityModel<Book>> all() {
+    public CollectionModel<EntityModel<Book>> all()
+    {
         return bookService.getAllBooks();
     }
 
     @PostMapping("/books")
-    ResponseEntity<?> newAccount(@RequestBody @NotNull @NotEmpty Book newBook) {
+    ResponseEntity<?> newAccount(@RequestBody @NotNull Book newBook) {
         return bookService.createNewBook(newBook);
     }
 
     @GetMapping("/books/student/{BookId}")
     public EntityModel<Book> getStudentAccount(@PathVariable String Id) {
-        return bookService.getBookByStudentId(Id);
+        return bookService.getBookById(Id);
     }
 
     @GetMapping("/accounts/{isbn}")
@@ -39,12 +39,11 @@ public class BookController
 
     @PutMapping("/books/{id}")
     ResponseEntity<?> editAccount(@RequestBody Book newBook, @PathVariable Long id) {
-        return accountService.updateOrCreateAccount(newBook, id);
+        return bookService.updateOrCreateAccount(newBook, id);
     }
 
-    @DeleteMapping("/accounts/{id}")
+   /* @DeleteMapping("/accounts/{id}")
     ResponseEntity<?> deleteAccount(@PathVariable Long id) {
-        return accountService.deleteAccount(id);
-    }
-
+        return bookService.deleteAccount(id);
+    }*/
 }

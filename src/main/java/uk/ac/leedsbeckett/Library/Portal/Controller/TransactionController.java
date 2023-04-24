@@ -1,5 +1,6 @@
 package uk.ac.leedsbeckett.Library.Portal.Controller;
 
+import org.hibernate.tuple.entity.EntityModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uk.ac.leedsbeckett.Library.Portal.model.Transaction;
@@ -13,7 +14,7 @@ public class TransactionController
     }
 
     @GetMapping("/transaction")
-    public CollectionModel<EntityModel<Transaction>> all() {
+    public CollectionModel<EntityMetamodel<Transaction>> all() {
         return transactionService.getAllTransaction();
     }
 
