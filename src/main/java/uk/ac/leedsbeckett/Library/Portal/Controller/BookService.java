@@ -35,7 +35,7 @@ public class BookService
     }
 
     public EntityModel<Book> getBookById(String BookIsbn) {
-        Book bookAccount = bookRepository.findBookById(BookIsbn);
+        Book bookAccount = bookRepository.findBookByIsbn(BookIsbn);
         if (bookAccount == null) {
             throw new BookNotFoundException(BookIsbn);
         }

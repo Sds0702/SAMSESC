@@ -24,12 +24,12 @@ public class BookController
 
     @PostMapping("/books")
     ResponseEntity<?> newAccount(@RequestBody @NotNull @NotEmpty Book newBook) {
-        return bookService.createNewAccount(newBook);
+        return bookService.createNewBook(newBook);
     }
 
-    @GetMapping("/books/student/{BookIsbn}")
-    public EntityModel<Book> getStudentAccount(@PathVariable String Isbn) {
-        return bookService.getBookById()ByStudentId(studentId);
+    @GetMapping("/books/student/{BookId}")
+    public EntityModel<Book> getStudentAccount(@PathVariable String Id) {
+        return bookService.getBookByStudentId(Id);
     }
 
     @GetMapping("/accounts/{isbn}")
